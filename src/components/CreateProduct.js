@@ -18,7 +18,7 @@ function CreateProduct() {
       <h2>Create Product</h2>
       <input placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
       <input placeholder="Price" type="number" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })} required />
-      <input placeholder="Image URL" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
+      <input type='file' value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} />
       <input placeholder="Category" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />
       <textarea placeholder="Description" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })}></textarea>
       <button type="submit">Create</button>

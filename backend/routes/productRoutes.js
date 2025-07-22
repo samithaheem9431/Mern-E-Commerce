@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 
+
 // GET all products
 router.get('/', async (req, res) => {
   try {
@@ -11,7 +12,6 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
 
 router.get('/:id', async (req, res) => {
   try {
@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 
 // CREATE product
 router.post('/', async (req, res) => {
-  const { name, price, description, image, category } = req.body;
+  const { name, price, description, category,image } = req.body;
   const newProduct = new Product({ name, price, description, image, category });
   try {
     const savedProduct = await newProduct.save();

@@ -1,18 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ProductList from './components/ProductList';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
+import Signup from './components/SignUp';
+import Signin from './components/SignIn';
+import Dashboard from './components/Dashboard';
 
 function App() {
+  const isLoggedIn = !!localStorage.getItem('token');
+
   return (
     <Router>
       <div className="container">
-        <h1>🛒 E-Commerce Product Catalog</h1>
         <Routes>
-          <Route path="/" element={<ProductList />} />
-          <Route path="/create" element={<CreateProduct />} />
-          <Route path="/edit/:id" element={<EditProduct />} />
+          <Route path="/" element={<Navigate to={isLoggedIn ? "/dashboard" : "/signin"} />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/signin" />} />
+          <Route path="/create" element={isLoggedIn ? <CreateProduct /> : <Navigate to="/signin" />} />
+          <Route path="/edit/:id" element={isLoggedIn ? <EditProduct /> : <Navigate to="/signin" />} />
         </Routes>
       </div>
     </Router>

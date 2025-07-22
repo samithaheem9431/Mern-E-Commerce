@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import '../ProductList.css';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
+
+  const navigate = useNavigate();
+
 
   const fetchProducts = async () => {
     try {
@@ -16,19 +19,28 @@ function ProductList() {
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this product?')) {
-      try {
-        await axios.delete(`http://localhost:5000/api/products/${id}`);
-        fetchProducts();
-      } catch (err) {
-        console.error('Delete failed:', err);
-      }
+    try {
+      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      fetchProducts();
+    } catch (err) {
+      console.error('Delete failed:', err);
     }
   };
 
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/signin');
+    } else {
+      fetchProducts();
+    }
+  }, [navigate]);
+
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/signin');
+  };
 
   return (
     <div className="product-list-container">
@@ -47,6 +59,7 @@ function ProductList() {
                   src={`http://localhost:5000/${p.image}`}
                   alt={p.name}
                   className="product-image"
+                  type
                 />
               )}
               <div className="product-details">
@@ -63,6 +76,7 @@ function ProductList() {
           ))}
         </ul>
       )}
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
