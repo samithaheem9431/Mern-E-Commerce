@@ -1,0 +1,57 @@
+/* CreateProduct.css */
+
+.create-product-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.create-product-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.create-product-form input,
+.create-product-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
+}
+
+.create-product-form input:focus,
+.create-product-form textarea:focus {
+  border-color: #4caf50;
+  outline: none;
+  background-color: #f9fff9;
+}
+
+.create-product-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.create-product-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.create-product-form button:hover {
+  background-color: #388e3c;
+}

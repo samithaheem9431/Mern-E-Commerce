@@ -1,0 +1,151 @@
+/* ProductList.css */
+
+body {
+  background-color: #f4f6f8;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-list-container {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Create Product Link Button */
+.create-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.create-link:hover {
+  background-color: #388e3c;
+  transform: translateY(-1px);
+}
+
+.create-link::before {
+  content: '➕';
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.create-link:hover::before {
+  transform: rotate(90deg) scale(1.2);
+}
+
+/* Product List Styles */
+.product-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Product Card */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Product Image */
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+/* Product Details */
+.product-details h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #333;
+}
+
+.product-details p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Action Buttons */
+.action-buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.action-buttons a,
+.action-buttons button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+/* Edit Button */
+.action-buttons a {
+  background-color: #1976d2;
+  color: white;
+}
+
+.action-buttons a:hover {
+  background-color: #1565c0;
+  transform: translateY(-1px);
+}
+
+/* Delete Button */
+.action-buttons button {
+  background-color: #e53935;
+  color: white;
+  border: none;
+}
+
+.action-buttons button:hover {
+  background-color: #c62828;
+  transform: translateY(-1px);
+}
+
+/* Icon animation on hover */
+.action-buttons a:hover::before,
+.action-buttons button:hover::before {
+  transform: scale(1.2) rotate(-15deg);
+}
+
+.action-buttons a::before {
+  content: '✏️';
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.action-buttons button::before {
+  content: '❌';
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
