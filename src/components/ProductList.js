@@ -78,7 +78,6 @@ function ProductList() {
         <button className="logout-btn" onClick={handleLogout}>Logout</button>
         <button className="landing-btn" onClick={() => navigate('/')}>Landing Page</button>
       </div>
-
     </div>
   );
 }

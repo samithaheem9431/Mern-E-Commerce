@@ -24,7 +24,7 @@ function CreateProduct() {
       }
     });
 
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (

@@ -1,12 +1,13 @@
 import React from 'react'
 import CustomNavbar from './Navbar';
 import Footer from './footer';
+import Body from './body';
 
 function Landing() {
     return (
         <div>
             <CustomNavbar />
-            <h1>Hello</h1>
+            <Body />
             <Footer />
         </div>
     )

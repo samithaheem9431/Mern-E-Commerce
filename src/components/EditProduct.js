@@ -15,7 +15,7 @@ function EditProduct() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.put(`http://localhost:5000/api/products/${id}`, form);
-    navigate('/');
+    navigate('/dashboard');
   };
 
   return (
