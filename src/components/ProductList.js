@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import '../ProductList.css';
+import '../css/ProductList.css';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
-
   const navigate = useNavigate();
-
 
   const fetchProducts = async () => {
     try {
@@ -56,11 +54,11 @@ function ProductList() {
             <li key={p._id} className="product-card">
               {p.image && (
                 <img
-                  src={`http://localhost:5000/${p.image}`}
+                  src={`http://localhost:5000/uploads/${p.image}`}
                   alt={p.name}
                   className="product-image"
-                  type
                 />
+
               )}
               <div className="product-details">
                 <h3>{p.name}</h3>

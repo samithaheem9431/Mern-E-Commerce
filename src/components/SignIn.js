@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import '../SignIn.css'
+import '../css/SignIn.css'
 
 function SignIn() {
     const [data, setData] = useState({ email: '', password: '' });

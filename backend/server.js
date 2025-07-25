@@ -6,6 +6,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static('uploads'));
 const productRoutes = require('./routes/productRoutes');
 const authRoutes = require('./routes/auth');
 
@@ -16,6 +17,7 @@ mongoose.connect(connectionString)
   .catch(() => console.log("MongoDB connection error"));
 
 // Root Route---------------------------------------------------------
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
