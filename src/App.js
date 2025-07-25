@@ -5,6 +5,7 @@ import EditProduct from './components/EditProduct';
 import Signup from './components/SignUp';
 import Signin from './components/SignIn';
 import Dashboard from './components/Dashboard';
+import Landing from './components/Landing';
 
 function App() {
   const isLoggedIn = !!localStorage.getItem('token');
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <div className="container">
         <Routes>
-          <Route path="/" element={<Navigate to={isLoggedIn ? "/dashboard" : "/signin"} />} />
+          <Route path="/" element={<Landing/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/dashboard" element={isLoggedIn ? <Dashboard /> : <Navigate to="/signin" />} />

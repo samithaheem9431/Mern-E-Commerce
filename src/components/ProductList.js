@@ -74,7 +74,11 @@ function ProductList() {
           ))}
         </ul>
       )}
-      <button onClick={handleLogout}>Logout</button>
+      <div className="action-footer">
+        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        <button className="landing-btn" onClick={() => navigate('/')}>Landing Page</button>
+      </div>
+
     </div>
   );
 }

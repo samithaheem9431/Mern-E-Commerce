@@ -149,3 +149,18 @@ body {
   display: inline-block;
   transition: transform 0.3s ease;
 }
+.action-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.logout-btn, .landing-btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #444;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
