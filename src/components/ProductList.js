@@ -8,21 +8,13 @@ function ProductList() {
   const navigate = useNavigate();
 
   const fetchProducts = async () => {
-    try {
-      const res = await axios.get('http://localhost:5000/api/products');
-      setProducts(res.data);
-    } catch (err) {
-      console.error('Failed to fetch products:', err);
-    }
+    const res = await axios.get('http://localhost:5000/api/products');
+    setProducts(res.data);
   };
 
   const handleDelete = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
-      fetchProducts();
-    } catch (err) {
-      console.error('Delete failed:', err);
-    }
+    await axios.delete(`http://localhost:5000/api/products/${id}`);
+    fetchProducts();
   };
 
   useEffect(() => {
@@ -43,7 +35,7 @@ function ProductList() {
   return (
     <div className="product-list-container">
       <div className="create-link">
-        <Link to="/create">Create New Product</Link>
+        <Link style={{ textDecoration: 'none', color: 'black' }} to="/create">Create New Product</Link>
       </div>
 
       {products.length === 0 ? (
@@ -63,6 +55,10 @@ function ProductList() {
               <div className="product-details">
                 <h3>{p.name}</h3>
                 <p><strong>Price:</strong> {p.price}</p>
+                <p><strong>Quantities:</strong></p>
+                <li>Small: {p.quantities?.small ?? 0}</li>
+                <li>Medium: {p.quantities?.medium ?? 0}</li>
+                <li>Large: {p.quantities?.large ?? 0}</li>
                 <p><strong>Category:</strong> {p.category}</p>
                 <p><strong>Description:</strong> {p.description}</p>
                 <div className="action-buttons">

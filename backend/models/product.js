@@ -6,6 +6,11 @@ const productSchema = new mongoose.Schema({
   description: String,
   image: String,
   category: String,
+  quantities: {
+    small: { type: Number, default: 0 },
+    medium: { type: Number, default: 0 },
+    large: { type: Number, default: 0 }
+  },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);

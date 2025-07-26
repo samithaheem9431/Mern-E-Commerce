@@ -5,12 +5,8 @@ function Body() {
     const [products, setProducts] = useState([]);
 
     const fetchProducts = async () => {
-        try {
-            const res = await axios.get('http://localhost:5000/api/products');
-            setProducts(res.data);
-        } catch (err) {
-            console.error('Failed to fetch products:', err);
-        }
+        const res = await axios.get('http://localhost:5000/api/products');
+        setProducts(res.data);
     };
 
     useEffect(() => {
@@ -24,20 +20,38 @@ function Body() {
                     <p>No products available.</p>
                 ) : (
                     products.map((product) => (
-                        <div className="col-md-4 mb-4" key={product._id}>
+                        <div className="col-md-3 position-relative" key={product._id}>
                             <div className="card shadow-sm">
                                 <img
                                     src={`http://localhost:5000/uploads/${product.image}`}
-                                    className="card-img-top"
+                                    className="img-fluid w-100"
                                     alt={product.name}
-                                    style={{ height: '300px', objectFit: 'cover' }}
+                                    style={{ height: '300px', objectFit: 'cover', }}
                                 />
 
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">{product.description}</p>
+                                    <button class="btn btn-sm btn-outline-primary me-1 position-relative">
+                                        S
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                            {product.quantities?.small ?? 0}
+                                        </span>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-primary me-1 position-relative">
+                                        M
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                            {product.quantities?.medium ?? 0}
+                                        </span>
+                                    </button>
+                                    <button class="btn btn-sm btn-outline-primary me-1 position-relative">
+                                        L
+                                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                                            {product.quantities?.large ?? 0}
+                                        </span>
+                                    </button>
                                     <div className="d-flex justify-content-between align-items-center">
-                                        <span className="text-primary fw-bold fs-5">${product.price}</span>
+                                        <span className="text-primary fw-bold fs-6">$ {product.price}</span>
                                         <button className="btn btn-success">Add to Cart</button>
                                     </div>
                                 </div>

@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Router>
-      <div className="container">
+      <div>
         <Routes>
           <Route path="/" element={<Landing/>} />
           <Route path="/signup" element={<Signup />} />

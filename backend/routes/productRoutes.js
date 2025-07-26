@@ -26,10 +26,17 @@ router.get('/:id', async (req, res) => {
 
 // CREATE product
 router.post('/', upload.single('image'), async (req, res) => {
-  const { name, price, description, category } = req.body;
+  const { name, price, description, category, quantities } = req.body;
   const imagePath = req.file ? req.file.filename : '';
 
-  const newProduct = new Product({ name, price, description, category, image: imagePath });
+
+  const newProduct = new Product({
+    name, price, description, category, image: imagePath, quantities: {
+        small: quantities?.small || 0,
+        medium: quantities?.medium || 0,
+        large: quantities?.large || 0,
+      }
+  });
 
   try {
     await newProduct.save();
@@ -41,10 +48,17 @@ router.post('/', upload.single('image'), async (req, res) => {
 
 // UPDATE product
 router.put('/:id', async (req, res) => {
-  const { name, price, description, image, category } = req.body;
+  const { name, price, description, image, category, quantities } = req.body;
   try {
     const updated = await Product.findByIdAndUpdate(
-      req.params.id, { name, price, description, image, category }, { new: true });
+      req.params.id, {
+      name, price, description, image, category, quantities: {
+        small: quantities?.small || 0,
+        medium: quantities?.medium || 0,
+        large: quantities?.large || 0,
+      }
+    }, { new: true });
+
     res.json(updated);
   } catch (err) {
     res.status(400).json({ message: err.message });

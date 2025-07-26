@@ -5,11 +5,11 @@ import Body from './body';
 
 function Landing() {
     return (
-        <div>
+        <>
             <CustomNavbar />
             <Body />
             <Footer />
-        </div>
+        </>
     )
 }
 

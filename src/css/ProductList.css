@@ -30,16 +30,19 @@ body {
 .create-link:hover {
   background-color: #388e3c;
   transform: translateY(-1px);
+  text-decoration: none;
 }
 
 .create-link::before {
   content: '➕';
   display: inline-block;
   transition: transform 0.3s ease;
+  text-decoration: none;
 }
 
 .create-link:hover::before {
   transform: rotate(90deg) scale(1.2);
+  text-decoration: none;
 }
 
 /* Product List Styles */
@@ -69,7 +72,7 @@ body {
 /* Product Image */
 .product-image {
   width: 150px;
-  height: 150px;
+  height: 260px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid #ddd;
